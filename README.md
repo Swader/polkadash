@@ -11,6 +11,7 @@ You'll need a reasonably new NodeJS version installed (preferably via [NVM](http
 ```bash
 git clone https://github.com/swader/polkadash
 cd polkadash
+mv src/config.example.js src/config.js # edit this to modify the default endpoint
 yarn && yarn serve --port 8081
 ```
 
