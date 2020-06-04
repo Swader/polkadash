@@ -32,6 +32,8 @@ import Notify from "@/components/NotificationPlugin";
 import i18n from "./i18n";
 import SideBar from "@/components/SidebarPlugin";
 
+import "@/components/Filters/prefix.js";
+
 Vue.config.productionTip = false;
 
 // router setup
