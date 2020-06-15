@@ -12,6 +12,10 @@
         <i class="tim-icons icon-chart-pie-36"></i>
         <p>Dashboard</p>
       </sidebar-link>
+      <sidebar-link to="/accounts">
+        <i class="tim-icons icon-book-bookmark"></i>
+        <p>Accounts</p>
+      </sidebar-link>
       <sidebar-link to="/blocknumber">
         <i class="tim-icons icon-atom"></i>
         <p>Block number</p>

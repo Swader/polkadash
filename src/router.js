@@ -22,6 +22,11 @@ const routes = [
         component: Dashboard,
       },
       {
+        path: "accounts",
+        name: "Accounts",
+        component: () => import("@/pages/Accounts.vue"),
+      },
+      {
         path: "blocknumber",
         name: "Block Number",
         component: Blocknumber,
