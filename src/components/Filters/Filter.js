@@ -75,8 +75,9 @@ export const MyFunctions = {
 		let prefixObj = JSON.parse(JSON.stringify(properties));
 		ss58Format = prefixObj.ss58Format;
 	},
-	/*
-
+	/* returnChainList: function()
+	   This function returns the list of chain names and their prefixes
+	   for the dropdown menu
 	*/
 	returnChainList: function(){
 		return chains;
