@@ -16,7 +16,7 @@
                 v-model="selectedChain"
                 @change="onSelect($event)"
               >
-                <option v-for="chainname in chains" v-bind:value="chainname">{{ chainname }}</option>
+                <option v-for="chainname in getDropdown()" v-bind:value="chainname">{{ chainname }}</option>
               </select>
             </p>
             <hr />
@@ -35,8 +35,7 @@ import { Card } from "@/components/index";
 import { web3Accounts } from "@polkadot/extension-dapp";
 import { MyFunctions } from "../components/Filters/Filter.js";
 import api from "../connection.js";
-const util = require("@polkadot/util-crypto");
-let dappex = require("@polkadot/extension-dapp");
+const dappex = require("@polkadot/extension-dapp");
 
 export default {
   el: "#selector",
@@ -54,32 +53,22 @@ export default {
       selectedChain: "",
       onlyChain: "",
       chainName: "",
-      chains: [
-        "polkadot (0)",
-        "kusama (2)",
-        "plasm (5)",
-        "bifrost (6)",
-        "edgeware (7)",
-        "karura (8)",
-        "reynolds (9)",
-        "acala (10)",
-        "laminar (11)",
-        "kulupu (16)",
-        "darwinia (18)",
-        "stafi (20)",
-        "robonomics (32)",
-        "centrifuge (36)",
-        "substrate (42)"
-      ]
     };
   },
   methods: {
+    /* getDropdown: function()
+       This calls the public function returnChainList
+       to get the list of chain names for the dropdown. 
+    */
+    getDropdown: function(){
+      return MyFunctions.returnChainList();
+    },
     /* selectDropdown: function()
        This ensures that data is only displayed if the 
        dropdown has been selected, else return no data.
     */
     selectDropdown: function() {
-      if (this.selected == true) return true;
+      return this.selected;
     },
     /* 
      onSelect: function(event)
@@ -143,6 +132,7 @@ export default {
     this.onChange();
     this.onSelect();
     this.selectDropdown();
+    this.getDropdown();
   }
 };
 </script>

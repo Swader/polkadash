@@ -9,8 +9,5 @@ const { ApiPromise, WsProvider } = require("@polkadot/api");
 const wsProvider = new WsProvider(localStorage.getItem("endpoint"));
 let api = ApiPromise.create({ provider: wsProvider });
 
-let dappex = require("@polkadot/extension-dapp");
-window.dappex = dappex;
-
 //const util = require("@polkadot/util");
 export default api;
