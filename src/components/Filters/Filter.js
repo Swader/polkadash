@@ -29,13 +29,13 @@ export const MyFunctions = {
 	   This takes in the chainname of the selected dropdown
 	   if the selected network is the same as the default network
 	   then return that default ss58Format prefix
-	*/  
-	returnPrefix: function(value){
+	*/
+
+	returnPrefix: function(value) {
 		MyFunctions.prefixSelect();
-		if(value == chainName){
+		if (value == chainName) {
 			return ss58Format;
-		}
-		else{
+		} else {
 			return 42;
 		}
 	},
@@ -56,8 +56,8 @@ export const MyFunctions = {
 		// this parses the ss58Format of the default network
 		let prefixObj = JSON.parse(JSON.stringify(properties));
 		ss58Format = prefixObj.ss58Format;
-	}
-}
+	},
+};
 
 Vue.filter('prefix', (value, prefix) => {
 	if (typeof prefix !== 'number') {

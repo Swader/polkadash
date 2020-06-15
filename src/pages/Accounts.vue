@@ -21,7 +21,7 @@
             </p>
             <hr />
             <p
-              v-if="selectDropdown()" 
+              v-if="selectDropdown()"
               v-for="(account, address) in accounts"
             >{{ account }}. Address on {{ onlyChain }}: {{ address | prefix(onlyChain) }}</p>
           </card>
@@ -92,7 +92,7 @@ export default {
       this.selected = true;
       //console.log(this.selectedChain);
       this.selectedChain.trim();
-      let splitAccount = this.selectedChain.split(' ');
+      let splitAccount = this.selectedChain.split(" ");
       let network = splitAccount[0];
       let assocPrefix = splitAccount[1];
       this.onlyChain = network;
@@ -119,10 +119,10 @@ export default {
         );
       } else {
         let allAccounts = await web3Accounts();
-        let accountList = allAccounts.map((accounts) =>{
-            return {
-                address: accounts.address,
-            };
+        let accountList = allAccounts.map(accounts => {
+          return {
+            address: accounts.address
+          };
         });
 
         let addressOptions = [];
