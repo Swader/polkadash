@@ -14,6 +14,7 @@ const prefixes = {
   laminar: 11,
   kulupu: 16,
   darwinia: 18,
+  stafi: 20,
   robonomics: 32,
   centrifuge: 36,
   substrate: 42,
