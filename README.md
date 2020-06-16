@@ -88,7 +88,7 @@ You can also add a translation of the component into `src/locales`.
 The file `connection.js` exports the API object which you can import and use in your components to interact with the chain. In a Vue component's script part:
 
 ```js
-import api from "../kusama.js";
+import api from "../connection.js";
 ```
 
 Then use the `api` promise in your components' methods and properties.
