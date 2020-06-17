@@ -54,7 +54,7 @@ Vue.use(SideBar);
 Vue.use(Notify);
 
 new Vue({
-  router,	
+  router,
   i18n,
   render: (h) => h(App),
 }).$mount("#app");
