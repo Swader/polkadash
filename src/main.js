@@ -24,6 +24,7 @@ import App from "./App.vue";
 import "@/assets/scss/white-dashboard.scss";
 import "@/assets/css/nucleo-icons.css";
 import "@/assets/demo/demo.css";
+import "@/components/Filters/Filter";
 
 import GlobalComponents from "./globalComponents";
 import GlobalDirectives from "./globalDirectives";
