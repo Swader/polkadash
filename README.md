@@ -2,7 +2,11 @@
 
 A mobile-friendly starter kit for developing your own UI for a Substrate-based chain. This starter kit is based on [Creative Tim's Vue White Dashboard](https://demos.creative-tim.com/vue-white-dashboard), so any [documentation](https://demos.creative-tim.com/vue-white-dashboard/documentation) applying to that one applies to this one as well.
 
-For tutorials on building different things with this starter UI, please see the Dot Leap Polkadash category. @TODO
+For tutorials on building different things with this starter UI, please see the [Dot Leap Polkadash category](https://dotleap.com/tag/polkadash):
+
+- [Intro to Polkadash](https://dotleap.com/polkadash-a-vuejs-dashboard-starter-kit-for-your-substrate-chain/)
+- [Subscribing to Polkadot Events](https://dotleap.com/how-to-subscribe-to-polkadot-events-2/)
+- [Building a VueJS address translation filter for Substrate chains](https://dotleap.com/building-an-address-filter/)
 
 ## Getting Started
 
@@ -88,12 +92,12 @@ You can also add a translation of the component into `src/locales`.
 The file `connection.js` exports the API object which you can import and use in your components to interact with the chain. In a Vue component's script part:
 
 ```js
-import api from "../kusama.js";
+import api from "../connection.js";
 ```
 
 Then use the `api` promise in your components' methods and properties.
 
-For more complex but reusable interaction with the chain, it's a good idea to abastract such functionality into a separate file that consumes this singleton connection, and export that complex function instead. For an example, see TODO
+For more complex but reusable interaction with the chain, it's a good idea to abastract such functionality into a separate file that consumes this singleton connection, and export that complex function instead.
 
 ## Deployment
 
