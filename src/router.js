@@ -4,7 +4,6 @@ import Dashboard from "@/pages/Dashboard.vue";
 
 import Blocknumber from "@/pages/Blocknumber.vue";
 import Home from "@/pages/Home.vue";
-import Events from "@/pages/Events.vue";
 
 const routes = [
   {
