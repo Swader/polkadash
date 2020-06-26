@@ -20,6 +20,10 @@
         <i class="tim-icons icon-atom"></i>
         <p>Block number</p>
       </sidebar-link>
+      <sidebar-link to="/events">
+        <i class="tim-icons icon-bell-55"></i>
+        <p>Events</p>
+      </sidebar-link>
     </side-bar>
 
     <div class="main-panel" :data="backgroundColor">
