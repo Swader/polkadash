@@ -12,12 +12,14 @@ const prefixes = {
   reynolds: 9,
   acala: 10,
   laminar: 11,
+  chainx: 13,
   kulupu: 16,
   darwinia: 18,
   stafi: 20,
   robonomics: 32,
   centrifuge: 36,
   substrate: 42,
+  chainx: 44
 };
 
 Vue.filter("prefix", (value, prefix) => {
