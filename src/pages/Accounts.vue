@@ -15,7 +15,7 @@
               <select
                 v-model="onlyChain"
               >
-                <option v-for="(value, key) in prefixes" :value="key">{{ key }} : {{ value }}</option>
+                <option v-for="(value, key) in prefixes" v-bind:value="key">{{ key }} : {{ value }}</option>
               </select>
             </p>
             <hr />
@@ -32,7 +32,7 @@
 <script>
 import { Card } from "@/components/index";
 import { web3Accounts } from "@polkadot/extension-dapp";
-import { MyFunctions, prefixes } from "../components/Filters/Filter.js";
+import { prefixes } from "../components/Filters/Filter.js";
 const dappex = require("@polkadot/extension-dapp");
 
 export default {

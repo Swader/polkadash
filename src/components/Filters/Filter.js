@@ -22,7 +22,7 @@ export const prefixes = {
 
 Vue.filter('prefix', (value, prefix) => {
 	if (typeof prefix !== 'number') {
-		prefix = prefixes[prefix];
+		prefix = prefixes[prefix] || 42;
 	}
 
 	let decoded = util.decodeAddress(value);
