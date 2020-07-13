@@ -14,14 +14,13 @@
               Choose an address to convert to:
               <select
                 v-model="onlyChain"
-                @change="onSelect(onlyChain)"
               >
                 <option v-for="(value, key) in prefixes" :value="key">{{ key }} : {{ value }}</option>
               </select>
             </p>
             <hr />
             <p
-              v-if="selected"
+              v-if="onlyChain"
               v-for="(account, address) in addresses"
             >{{ address }}. Address on {{ onlyChain }}: {{ account | prefix(onlyChain) }}</p>
           </card>
@@ -44,17 +43,12 @@ export default {
   },
   data() {
     return {
-      selected: false,
       addresses: {},
       onlyChain: "",
       prefixes,
     };
   },
   methods: {
-    onSelect: function(selected) {
-      this.selected = true;
-      this.onlyChain = selected;
-    },
     web3Connect: async function() {
       dappex.web3Enable();
       let myapi = await api;
@@ -75,7 +69,6 @@ export default {
   },
   created() {
     this.web3Connect();
-    this.onSelect();
   }
 };
 </script>
