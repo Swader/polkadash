@@ -51,7 +51,6 @@ export default {
   methods: {
     web3Connect: async function() {
       dappex.web3Enable();
-      let myapi = await api;
       if (!dappex.isWeb3Injected) {
         alert(
           "You need a Web3 enabled browser to log in with Web3. The easiest solution is probably to install the Polkadot{js} extension."
