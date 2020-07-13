@@ -24,7 +24,6 @@ export const prefixes = {
 Vue.filter('prefix', (value, prefix) => {
 	if (typeof prefix !== 'number') {
 		prefix = prefixes[prefix];
-		//console.log("Prefix: " + prefix);
 	}
 
 	let decoded = util.decodeAddress(value);

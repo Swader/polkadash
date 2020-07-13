@@ -8,22 +8,22 @@
       <div class="row">
         <div class="col-lg-12 col-md-3 col-sm-4 col-xs-6 col-xs-6 text-left">
           <card>
-            <p v-for="(account, address) in accounts">{{ account }}. Account: {{ address }}</p>
+            <p v-for="(account, address) in addresses">{{ address }}. Account: {{ account }}</p>
             <hr />
             <p>
               Choose an address to convert to:
               <select
-                v-model="currentPrefix"
-                @change="onSelect(currentPrefix)"
+                v-model="onlyChain"
+                @change="onSelect(onlyChain)"
               >
                 <option v-for="(value, key) in prefixes" :value="key">{{ key }} : {{ value }}</option>
               </select>
             </p>
             <hr />
             <p
-              v-if="selectDropdown()"
-              v-for="(account, address) in accounts"
-            >{{ account }}. Address on {{ onlyChain }}: {{ address | prefix(onlyChain) }}</p>
+              v-if="selected"
+              v-for="(account, address) in addresses"
+            >{{ address }}. Address on {{ onlyChain }}: {{ account | prefix(onlyChain) }}</p>
           </card>
         </div>
       </div>
@@ -38,7 +38,6 @@ import api from "../connection.js";
 const dappex = require("@polkadot/extension-dapp");
 
 export default {
-  el: "#selector",
   components: {
     Card,
     web3Accounts
@@ -46,27 +45,15 @@ export default {
   data() {
     return {
       selected: false,
-      accounts: {},
-      address: {},
-      onlyAddress: "",
-      selectedAddress: "",
-      selectedChain: "",
+      addresses: {},
       onlyChain: "",
-      chainName: "",
       prefixes,
-      currentPrefix: {}
     };
   },
   methods: {
-    selectDropdown: function() {
-      return this.selected;
-    },
     onSelect: function(selected) {
       this.selected = true;
       this.onlyChain = selected;
-    },
-    onChange: function(selected) {
-      console.log(this.selectedAddress);
     },
     web3Connect: async function() {
       dappex.web3Enable();
@@ -77,30 +64,18 @@ export default {
         );
       } else {
         let allAccounts = await web3Accounts();
-        let accountList = allAccounts.map(accounts => {
-          return {
-            address: accounts.address
-          };
-        });
 
         let addressOptions = [];
         allAccounts.forEach(element => {
           addressOptions.push(element.address);
-          this.address = addressOptions;
         });
-
-        for (let i = 0; i < addressOptions.length; i++) {
-          let account = addressOptions[i];
-          this.$set(this.accounts, account, i);
-        }
+        this.addresses = addressOptions;
       }
     }
   },
   created() {
     this.web3Connect();
-    this.onChange();
     this.onSelect();
-    this.selectDropdown();
   }
 };
 </script>
