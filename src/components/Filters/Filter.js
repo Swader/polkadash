@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import api from '../../connection.js';
 
 const util = require('@polkadot/util-crypto');
 

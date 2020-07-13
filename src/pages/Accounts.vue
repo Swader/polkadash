@@ -33,7 +33,6 @@
 import { Card } from "@/components/index";
 import { web3Accounts } from "@polkadot/extension-dapp";
 import { MyFunctions, prefixes } from "../components/Filters/Filter.js";
-import api from "../connection.js";
 const dappex = require("@polkadot/extension-dapp");
 
 export default {
