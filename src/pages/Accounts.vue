@@ -13,10 +13,10 @@
             <p>
               Choose an address to convert to:
               <select
-                v-model="selectedChain"
-                @change="onSelect($event)"
+                v-model="currentPrefix"
+                @change="onSelect(currentPrefix)"
               >
-                <option v-for="chainname in getDropdown()" v-bind:value="chainname">{{ chainname }}</option>
+                <option v-for="(value, key) in prefixes" :value="key">{{ key }} : {{ value }}</option>
               </select>
             </p>
             <hr />
@@ -33,7 +33,7 @@
 <script>
 import { Card } from "@/components/index";
 import { web3Accounts } from "@polkadot/extension-dapp";
-import { MyFunctions } from "../components/Filters/Filter.js";
+import { MyFunctions, prefixes } from "../components/Filters/Filter.js";
 import api from "../connection.js";
 const dappex = require("@polkadot/extension-dapp");
 
@@ -53,52 +53,21 @@ export default {
       selectedChain: "",
       onlyChain: "",
       chainName: "",
+      prefixes,
+      currentPrefix: {}
     };
   },
   methods: {
-    /* getDropdown: function()
-       This calls the public function returnChainList
-       to get the list of chain names for the dropdown. 
-    */
-    getDropdown: function(){
-      return MyFunctions.returnChainList();
-    },
-    /* selectDropdown: function()
-       This ensures that data is only displayed if the 
-       dropdown has been selected, else return no data.
-    */
     selectDropdown: function() {
       return this.selected;
     },
-    /* 
-     onSelect: function(event)
-     Once a selection of the desired conversion is chosen, 
-     it takes the selection directly from the dropdown, 
-     splits it into two arrays to separate the name and the 
-     prefix attached, then calls returnPrefix()
-    */
-    onSelect: function(event) {
+    onSelect: function(selected) {
       this.selected = true;
-      //console.log(this.selectedChain);
-      this.selectedChain.trim();
-      let splitAccount = this.selectedChain.split(" ");
-      let network = splitAccount[0];
-      let assocPrefix = splitAccount[1];
-      this.onlyChain = network;
-      //console.log(this.onlyChain);
-
-      // calls the public function to check if the default network
-      // is the same as the chosen network to convert address to
-      MyFunctions.returnPrefix(this.onlyChain);
+      this.onlyChain = selected;
     },
-    onChange: function(event) {
+    onChange: function(selected) {
       console.log(this.selectedAddress);
     },
-    /* web3Connect: async function()
-       This function connects to the polkadot{js} extension,
-       checks if a user is logged in, if so, grabs all accounts from that
-       user and prints them out to the screen from an array
-    */
     web3Connect: async function() {
       dappex.web3Enable();
       let myapi = await api;
@@ -132,7 +101,6 @@ export default {
     this.onChange();
     this.onSelect();
     this.selectDropdown();
-    this.getDropdown();
   }
 };
 </script>
