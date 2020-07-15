@@ -16,6 +16,10 @@
         <i class="tim-icons icon-atom"></i>
         <p>Block number</p>
       </sidebar-link>
+      <sidebar-link to="/profile">
+        <i class="tim-icons icon-single-02"></i>
+        <p>Profile</p>
+      </sidebar-link>
     </side-bar>
 
     <div class="main-panel" :data="backgroundColor">

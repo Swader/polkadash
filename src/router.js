@@ -26,6 +26,11 @@ const routes = [
         name: "Block Number",
         component: Blocknumber,
       },
+      {
+        path: "profile",
+        name: "Profile",
+        component: () => import("@/pages/Profile.vue"),
+      },
     ],
   },
 ];
