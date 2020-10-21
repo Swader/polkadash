@@ -16,7 +16,7 @@
           </button>
         </div>
         <a class="navbar-brand" href="https://dotleap.com"
-          ><img src="<%= BASE_URL %>/favicon2.png" /> DotLeap.com</a
+          ><img src="`${publicPath}/favicon2.png`" /> DotLeap.com</a
         >
       </div>
       <button
@@ -140,6 +140,7 @@ export default {
       searchQuery: "",
       showMenu: false,
       endpoint: localStorage.getItem("endpoint"),
+      publicPath: process.env.BASE_URL,
     };
   },
   methods: {
