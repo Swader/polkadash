@@ -16,7 +16,7 @@
           </button>
         </div>
         <a class="navbar-brand" href="https://dotleap.com"
-          ><img src="/favicon2.png" /> DotLeap.com</a
+          ><img src="<%= BASE_URL %>/favicon2.png" /> DotLeap.com</a
         >
       </div>
       <button
